@@ -40,8 +40,24 @@ class ReadingsListViewController: UIViewController {
             make.center.equalToSuperview()
         }
         
+        reloadData()
+        updateTimer = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { [weak self] _ in
+            self?.reloadData()
+        }
+    }
+    
+    private var updateTimer: Timer!
+    
+    var isLoading = false
+    func reloadData() {
+        if isLoading {
+            return
+        }
+        isLoading = true
         fetchReadings() { [weak self] in
-            self?.fetchSettings()
+            self?.fetchSettings() { [weak self] in
+                self?.isLoading = false
+            }
         }
     }
     

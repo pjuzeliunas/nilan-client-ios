@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,21 @@
 		4344326C237B4A4F0047A48C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4344326A237B4A4F0047A48C /* Main.storyboard */; };
 		4344326E237B4A510047A48C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4344326D237B4A510047A48C /* Assets.xcassets */; };
 		43443271237B4A510047A48C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4344326F237B4A510047A48C /* LaunchScreen.storyboard */; };
+		4344327B237B4E680047A48C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4344327A237B4E680047A48C /* SnapKit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4344327D237B4E680047A48C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		43443261237B4A4F0047A48C /* Nilan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nilan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +38,10 @@
 		4344326D237B4A510047A48C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43443270237B4A510047A48C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43443272237B4A510047A48C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43443278237B4D1B0047A48C /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		4344327A237B4E680047A48C /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		4344327F237B4EFE0047A48C /* input.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = input.xcfilelist; sourceTree = "<group>"; };
+		43443280237B4F1F0047A48C /* output.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = output.xcfilelist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4344327B237B4E680047A48C /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +59,12 @@
 		43443258237B4A4F0047A48C = {
 			isa = PBXGroup;
 			children = (
+				4344327F237B4EFE0047A48C /* input.xcfilelist */,
+				43443280237B4F1F0047A48C /* output.xcfilelist */,
+				43443278237B4D1B0047A48C /* Cartfile */,
 				43443263237B4A4F0047A48C /* Nilan */,
 				43443262237B4A4F0047A48C /* Products */,
+				43443279237B4E680047A48C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +90,14 @@
 			path = Nilan;
 			sourceTree = "<group>";
 		};
+		43443279237B4E680047A48C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4344327A237B4E680047A48C /* SnapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +108,8 @@
 				4344325D237B4A4F0047A48C /* Sources */,
 				4344325E237B4A4F0047A48C /* Frameworks */,
 				4344325F237B4A4F0047A48C /* Resources */,
+				4344327D237B4E680047A48C /* Embed Frameworks */,
+				4344327E237B4E810047A48C /* Copy Frameworks (Carthage) */,
 			);
 			buildRules = (
 			);
@@ -132,6 +165,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4344327E237B4E810047A48C /* Copy Frameworks (Carthage) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/input.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "Copy Frameworks (Carthage)";
+			outputFileListPaths = (
+				"$(SRCROOT)/output.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4344325D237B4A4F0047A48C /* Sources */ = {
@@ -285,6 +341,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Nilan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +362,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Nilan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

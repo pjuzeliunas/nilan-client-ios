@@ -8,15 +8,28 @@
 
 import Foundation
 
+enum FanSpeed: Int, Codable {
+    case level1 = 101
+    case level2 = 102
+    case level3 = 103
+    case level4 = 104
+}
+
+enum VentilationMode: Int, Codable {
+    case auto = 0
+    case cooling = 1
+    case heating = 2
+}
+
 struct Settings {
-    var fanSpeed: Int
+    var fanSpeed: FanSpeed
     var desiredRoomTemperature: Int
     var desiredDHWTemperature: Int
     var dhwProductionPaused: Bool
     var dhwProductionPauseDuration: Int
     var centralHeatingPaused: Bool
     var centralHeatingPauseDuration: Int
-    var ventilationMode: Int
+    var ventilationMode: VentilationMode
     var ventilationOnPause: Bool
     var setpointSupplyTemperature: Int
 }

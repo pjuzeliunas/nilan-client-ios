@@ -28,6 +28,8 @@ class ReadingsListViewController: UIViewController {
     
     var listView: UITableView!
     
+    fileprivate let fanSpeedCellIdentifier = "FanSpeed"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +41,7 @@ class ReadingsListViewController: UIViewController {
             make.size.equalToSuperview()
             make.center.equalToSuperview()
         }
+        listView.register(FanSpeedCell.self, forCellReuseIdentifier: fanSpeedCellIdentifier)
         
         reloadData()
         updateTimer = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { [weak self] _ in
@@ -118,9 +121,25 @@ extension ReadingsListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 1 && indexPath.row == 0 {
+            // Fan speed cell
+            if let cell = listView.dequeueReusableCell(withIdentifier: fanSpeedCellIdentifier, for: indexPath) as? FanSpeedCell {
+                cell.segmentedControl.selectedSegmentIndex = settings!.fanSpeed.toSegmentedControlIndex()
+                cell.delegate = self
+                return cell
+            } else {
+                return nil!
+            }
+        } else {
+            return basicCell(forIndexPath: indexPath)
+        }
+    }
+    
+    private func basicCell(forIndexPath indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell!
         let identifier = "BasicCell"
-        cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+        
+        cell = listView.dequeueReusableCell(withIdentifier: identifier)
         if cell == nil {
             cell = UITableViewCell(style: .value1, reuseIdentifier: identifier)
         }
@@ -166,7 +185,7 @@ extension ReadingsListViewController: UITableViewDataSource {
         case 1:
             return readings.outdoorTemperature.temperatureString()
         case 2:
-            return readings.averageHumidity.percentageString()
+            return readings.actualHumidity.percentageString()
         case 3:
             return readings.dhwTankTopTemperature.temperatureString()
         case 4:
@@ -219,6 +238,18 @@ extension ReadingsListViewController: UITableViewDataSource {
         default:
             return ""
         }
+    }
+}
+
+extension ReadingsListViewController: FanSpeedCellDelegate {
+    func didSelectSpeed(atIndex index: Int) {
+        let fanSpeed = FanSpeed(rawValue: index + 101)
+        var settings = Settings()
+        settings.fanSpeed = fanSpeed
+        AF.request("http://192.168.1.8:8080/settings",
+                   method: .put,
+                   parameters: settings,
+                   encoder: JSONParameterEncoder.default).response { _ in }
     }
 }
 

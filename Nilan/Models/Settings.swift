@@ -22,16 +22,16 @@ enum VentilationMode: Int, Codable {
 }
 
 struct Settings {
-    var fanSpeed: FanSpeed
-    var desiredRoomTemperature: Int
-    var desiredDHWTemperature: Int
-    var dhwProductionPaused: Bool
-    var dhwProductionPauseDuration: Int
-    var centralHeatingPaused: Bool
-    var centralHeatingPauseDuration: Int
-    var ventilationMode: VentilationMode
-    var ventilationOnPause: Bool
-    var setpointSupplyTemperature: Int
+    var fanSpeed: FanSpeed!
+    var desiredRoomTemperature: Int!
+    var desiredDHWTemperature: Int!
+    var dhwProductionPaused: Bool!
+    var dhwProductionPauseDuration: Int!
+    var centralHeatingPaused: Bool!
+    var centralHeatingPauseDuration: Int!
+    var ventilationMode: VentilationMode!
+    var ventilationOnPause: Bool!
+    var setpointSupplyTemperature: Int!
 }
 
 extension Settings: Codable {

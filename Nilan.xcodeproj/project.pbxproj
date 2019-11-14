@@ -18,8 +18,9 @@
 		43443285237B56480047A48C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43443284237B56480047A48C /* Settings.swift */; };
 		43443286237B597A0047A48C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4344327A237B4E680047A48C /* SnapKit.framework */; };
 		43443289237B59830047A48C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43443288237B59830047A48C /* Alamofire.framework */; };
-		439F5390237CB902000FB9BC /* FanSpeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F538F237CB902000FB9BC /* FanSpeedCell.swift */; };
+		439F5390237CB902000FB9BC /* SegmentedControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F538F237CB902000FB9BC /* SegmentedControlCell.swift */; };
 		43F0019F237E06960028F1D5 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F0019E237E06960028F1D5 /* Routes.swift */; };
+		43F001A2237E07A20028F1D5 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F001A1237E07A20028F1D5 /* SegmentedControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +39,9 @@
 		43443282237B54AC0047A48C /* Readings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Readings.swift; sourceTree = "<group>"; };
 		43443284237B56480047A48C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		43443288237B59830047A48C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		439F538F237CB902000FB9BC /* FanSpeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanSpeedCell.swift; sourceTree = "<group>"; };
+		439F538F237CB902000FB9BC /* SegmentedControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlCell.swift; sourceTree = "<group>"; };
 		43F0019E237E06960028F1D5 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		43F001A1237E07A20028F1D5 /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		43443263237B4A4F0047A48C /* Nilan */ = {
 			isa = PBXGroup;
 			children = (
+				43F001A0237E07930028F1D5 /* View models */,
 				439F538E237CB8CD000FB9BC /* Views */,
 				43443281237B547D0047A48C /* Models */,
 				43443264237B4A4F0047A48C /* AppDelegate.swift */,
@@ -114,9 +117,17 @@
 			isa = PBXGroup;
 			children = (
 				43443268237B4A4F0047A48C /* ReadingsListViewController.swift */,
-				439F538F237CB902000FB9BC /* FanSpeedCell.swift */,
+				439F538F237CB902000FB9BC /* SegmentedControlCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		43F001A0237E07930028F1D5 /* View models */ = {
+			isa = PBXGroup;
+			children = (
+				43F001A1237E07A20028F1D5 /* SegmentedControl.swift */,
+			);
+			path = "View models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +231,8 @@
 				43443283237B54AC0047A48C /* Readings.swift in Sources */,
 				43443267237B4A4F0047A48C /* SceneDelegate.swift in Sources */,
 				43443285237B56480047A48C /* Settings.swift in Sources */,
-				439F5390237CB902000FB9BC /* FanSpeedCell.swift in Sources */,
+				43F001A2237E07A20028F1D5 /* SegmentedControl.swift in Sources */,
+				439F5390237CB902000FB9BC /* SegmentedControlCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

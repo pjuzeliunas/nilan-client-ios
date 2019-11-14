@@ -8,23 +8,22 @@
 
 import UIKit
 
-protocol FanSpeedCellDelegate {
-    func didSelectSpeed(atIndex: Int)
+protocol SegmentedControlCellDelegate {
+    func didSelectSegment(sender: Any, atIndex: Int)
 }
 
-class FanSpeedCell: UITableViewCell {
+class SegmentedControlCell<ViewModel: SegmentedControl>: UITableViewCell {
+    var delegate: SegmentedControlCellDelegate?
     
-    var delegate: FanSpeedCellDelegate?
-    
-    let segmentedControl = UISegmentedControl(items: ["I", "II", "III", "IV"])
+    let segmentedControl = UISegmentedControl(items: ViewModel.segments)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.textLabel?.text = "Fan Speed"
+        self.textLabel?.text = ViewModel.title
         
         contentView.addSubview(segmentedControl)
-        segmentedControl.addTarget(self, action: #selector(FanSpeedCell.valueDidChange(sender:)), for: .valueChanged)
+        segmentedControl.addTarget(self, action: #selector(SegmentedControlCell.valueDidChange(sender:)), for: .valueChanged)
         segmentedControl.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-16.0)
             make.centerY.equalToSuperview()
@@ -38,13 +37,7 @@ class FanSpeedCell: UITableViewCell {
     }
     
     @objc func valueDidChange(sender: UISegmentedControl) {
-        delegate?.didSelectSpeed(atIndex: segmentedControl.selectedSegmentIndex)
+        delegate?.didSelectSegment(sender: self, atIndex: segmentedControl.selectedSegmentIndex)
     }
     
-}
-
-extension FanSpeed {
-    func toSegmentedControlIndex() -> Int {
-        return rawValue - 101
-    }
 }

@@ -65,7 +65,7 @@ class ReadingsListViewController: UIViewController {
     }
     
     func fetchReadings(_ callback: SimpleCallback? = nil) {
-        AF.request("http://192.168.1.8:8080/readings").responseDecodable { [weak self] (response: DataResponse<Readings, AFError>) in
+        AF.request(Routes.readings).responseDecodable { [weak self] (response: DataResponse<Readings, AFError>) in
             switch response.result {
             case .success(let readings):
                 self?.readings = readings
@@ -78,7 +78,7 @@ class ReadingsListViewController: UIViewController {
     }
     
     func fetchSettings(_ callback: SimpleCallback? = nil) {
-        AF.request("http://192.168.1.8:8080/settings").responseDecodable { [weak self] (response: DataResponse<Settings, AFError>) in
+        AF.request(Routes.settings).responseDecodable { [weak self] (response: DataResponse<Settings, AFError>) in
             switch response.result {
             case .success(let settings):
                 self?.settings = settings

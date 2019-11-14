@@ -19,6 +19,7 @@
 		43443286237B597A0047A48C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4344327A237B4E680047A48C /* SnapKit.framework */; };
 		43443289237B59830047A48C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43443288237B59830047A48C /* Alamofire.framework */; };
 		439F5390237CB902000FB9BC /* FanSpeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F538F237CB902000FB9BC /* FanSpeedCell.swift */; };
+		43F0019F237E06960028F1D5 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F0019E237E06960028F1D5 /* Routes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		43443284237B56480047A48C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		43443288237B59830047A48C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		439F538F237CB902000FB9BC /* FanSpeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanSpeedCell.swift; sourceTree = "<group>"; };
+		43F0019E237E06960028F1D5 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				43443282237B54AC0047A48C /* Readings.swift */,
 				43443284237B56480047A48C /* Settings.swift */,
+				43F0019E237E06960028F1D5 /* Routes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43443269237B4A4F0047A48C /* ReadingsListViewController.swift in Sources */,
+				43F0019F237E06960028F1D5 /* Routes.swift in Sources */,
 				43443265237B4A4F0047A48C /* AppDelegate.swift in Sources */,
 				43443283237B54AC0047A48C /* Readings.swift in Sources */,
 				43443267237B4A4F0047A48C /* SceneDelegate.swift in Sources */,

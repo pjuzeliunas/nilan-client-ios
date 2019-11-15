@@ -29,3 +29,9 @@ extension Readings: Codable {
         case supplyFlowTemperature = "SupplyFlowTemperature"
     }
 }
+
+extension Readings: Fetchable {
+    static var fetchURL: String {
+        return Routes.readings
+    }
+}

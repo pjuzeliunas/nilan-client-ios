@@ -48,3 +48,15 @@ extension Settings: Codable {
         case setpointSupplyTemperature = "SetpointSupplyTemperature"
     }
 }
+
+extension Settings: Fetchable {
+    static var fetchURL: String {
+        return Routes.settings
+    }
+}
+
+extension Settings: Postable {
+    var postURL: String {
+        return Routes.settings
+    }
+}

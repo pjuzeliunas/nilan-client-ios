@@ -89,7 +89,7 @@ extension PropertyListViewController: UITableViewDataSource {
         case 0:
             return viewModel?.numberOfReadings ?? 0
         case 1:
-            return viewModel?.numberOfReadings ?? 0
+            return viewModel?.numberOfSettings ?? 0
         default:
             return 0
         }

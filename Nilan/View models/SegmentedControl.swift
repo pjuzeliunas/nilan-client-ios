@@ -29,6 +29,6 @@ struct VentilationModelSegmentedControl: SegmentedControl {
     }
     
     static var title: String {
-        return "Ventilation mode"
+        return "Mode"
     }
 }

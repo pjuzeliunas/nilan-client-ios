@@ -17,10 +17,98 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="e5f-UG-31T" kind="show" identifier="showTemperature" id="A5p-k6-rhg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="126"/>
+        </scene>
+        <!--Temperature View Controller-->
+        <scene sceneID="CUS-P2-Uqf">
+            <objects>
+                <viewController id="e5f-UG-31T" customClass="TemperatureViewController" customModule="Nilan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5mB-B5-a6I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="rwQ-7Z-n03">
+                                <rect key="frame" x="80.5" y="377.5" width="253" height="53"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dK-Ro-ElQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="53"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="cVL-V2-6eh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <state key="normal" title="−">
+                                            <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="minusAction:" destination="e5f-UG-31T" eventType="touchUpInside" id="1vu-ht-ks1"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 ℃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYG-kA-Rmp">
+                                        <rect key="frame" x="84" y="6" width="85" height="41"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vh-Ak-sRS">
+                                        <rect key="frame" x="193" y="0.0" width="60" height="53"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="Iat-JL-gLK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="plusAction:" destination="e5f-UG-31T" eventType="touchUpInside" id="PBb-79-f0L"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desired room temperature" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVe-FH-bZO">
+                                <rect key="frame" x="34" y="38" width="346.5" height="82"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4l-ca-440">
+                                <rect key="frame" x="191" y="736" width="32" height="30"/>
+                                <state key="normal" title="Hide"/>
+                                <connections>
+                                    <action selector="didTapHideButton:" destination="0AZ-Vj-TMI" eventType="touchUpInside" id="Lw0-ya-PiK"/>
+                                    <action selector="didTapHideButton:" destination="e5f-UG-31T" eventType="touchUpInside" id="pHD-kx-lYF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EVe-FH-bZO" firstAttribute="centerX" secondItem="Zkb-Qr-Ioa" secondAttribute="centerX" id="38q-rx-SZu"/>
+                            <constraint firstItem="EVe-FH-bZO" firstAttribute="width" secondItem="5mB-B5-a6I" secondAttribute="width" multiplier="0.914251" constant="-32" id="GWb-ng-rAY"/>
+                            <constraint firstItem="m4l-ca-440" firstAttribute="centerX" secondItem="Zkb-Qr-Ioa" secondAttribute="centerX" id="OEq-WP-Gh2"/>
+                            <constraint firstItem="rwQ-7Z-n03" firstAttribute="centerX" secondItem="Zkb-Qr-Ioa" secondAttribute="centerX" id="Zj4-zQ-xxe"/>
+                            <constraint firstItem="EVe-FH-bZO" firstAttribute="top" secondItem="Zkb-Qr-Ioa" secondAttribute="top" constant="38" id="c1Q-RL-s99"/>
+                            <constraint firstItem="Zkb-Qr-Ioa" firstAttribute="bottom" secondItem="m4l-ca-440" secondAttribute="bottom" constant="42" id="eFI-RM-pGa"/>
+                            <constraint firstItem="rwQ-7Z-n03" firstAttribute="centerY" secondItem="Zkb-Qr-Ioa" secondAttribute="centerY" id="ywh-nb-aKL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zkb-Qr-Ioa"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QFQ-8g-agp"/>
+                    <connections>
+                        <outlet property="minusButton" destination="6dK-Ro-ElQ" id="m7o-2q-WNY"/>
+                        <outlet property="plusButton" destination="7vh-Ak-sRS" id="V5x-YT-g4k"/>
+                        <outlet property="temperatureLabel" destination="wYG-kA-Rmp" id="4sO-cv-6At"/>
+                        <outlet property="titleLabel" destination="EVe-FH-bZO" id="KL2-q3-a0d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NSL-Oy-jud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="0AZ-Vj-TMI" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1169.5652173913045" y="125.89285714285714"/>
         </scene>
     </scenes>
 </document>

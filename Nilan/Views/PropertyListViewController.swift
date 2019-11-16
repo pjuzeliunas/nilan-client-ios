@@ -30,7 +30,9 @@ class PropertyListViewController: UIViewController {
         
         listView = UITableView()
         listView.dataSource = self
+        listView.delegate = self
         listView.tableFooterView = UIView()
+        listView.clipsToBounds = true
         view.addSubview(listView)
         listView.snp.makeConstraints { make in
             make.size.equalToSuperview()
@@ -43,6 +45,18 @@ class PropertyListViewController: UIViewController {
         updateTimer = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { [weak self] _ in
             self?.reloadData()
         }
+        
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     private var updateTimer: Timer!
@@ -63,6 +77,36 @@ class PropertyListViewController: UIViewController {
                 self?.viewModel = newViewModel
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showTemperature":
+            guard let temperatureViewController = segue.destination as? TemperatureViewController,
+                let roomTemperature = viewModel?.settings.desiredRoomTemperature,
+                let flowTemperature = viewModel?.settings.setpointSupplyTemperature,
+                let dhwTemperature = viewModel?.settings.desiredDHWTemperature else {
+                    return
+            }
+            if let kind = sender as? String {
+                switch kind {
+                case "room":
+                    let temperature = roomTemperature / 10
+                    temperatureViewController.viewModel = RoomTemperatureSettingViewModel(temperature: temperature)
+                case "flow":
+                    let temperature = flowTemperature / 10
+                    temperatureViewController.viewModel = FlowTemperatureSettingViewModel(temperature: temperature)
+                case "dhw":
+                    let temperature = dhwTemperature / 10
+                    temperatureViewController.viewModel = DHWTemperatureSettingViewModel(temperature: temperature)
+                default:
+                    break
+                }
+            }
+        default:
+            return
+        }
+        
     }
 }
 
@@ -132,16 +176,38 @@ extension PropertyListViewController: UITableViewDataSource {
         case 0:
             cell.textLabel?.text = viewModel?.readingsKey(forRow: indexPath.row)
             cell.detailTextLabel?.text = viewModel?.readingsValue(forRow: indexPath.row)
+            cell.accessoryType = .none
         case 1:
             cell.textLabel?.text = viewModel?.settingsKey(forRow: indexPath.row)
             cell.detailTextLabel?.text = viewModel?.settingsValue(forRow: indexPath.row)
+            cell.accessoryType = .disclosureIndicator
         default:
             break
         }
         
         return cell
     }
+}
+
+extension PropertyListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section == 1 && indexPath.row > 1
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch (indexPath.section, indexPath.row) {
+        case (1, 2):
+            performSegue(withIdentifier: "showTemperature", sender: "room")
+        case (1, 3):
+            performSegue(withIdentifier: "showTemperature", sender: "flow")
+        case (1, 5):
+            performSegue(withIdentifier: "showTemperature", sender: "dhw")
+        default:
+            break
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension PropertyListViewController: SegmentedControlCellDelegate {

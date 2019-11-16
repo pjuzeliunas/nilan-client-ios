@@ -46,17 +46,17 @@ struct PropertyListViewModel {
         case 0:
             return "Fan speed"
         case 1:
-            return "Ventilation mode"
+            return "Mode"
         case 2:
-            return "Desired room temperature"
+            return "Wanted room T"
         case 3:
-            return "Supply flow temperature setting"
+            return "Wanted supply flow T"
         case 4:
-            return "Central heating standby mode"
+            return "Central heating standby"
         case 5:
-            return "DHW temperature setting"
+            return "Wanted DHW T"
         case 6:
-            return "DHW standby mode"
+            return "DHW standby"
         default:
             return ""
         }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		43136152237F4C940049F044 /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43136151237F4C940049F044 /* Fetchable.swift */; };
 		43136154237F4D290049F044 /* Postable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43136153237F4D290049F044 /* Postable.swift */; };
+		43136156237F5DB10049F044 /* TemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43136155237F5DB10049F044 /* TemperatureViewController.swift */; };
 		43443265237B4A4F0047A48C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43443264237B4A4F0047A48C /* AppDelegate.swift */; };
 		43443267237B4A4F0047A48C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43443266237B4A4F0047A48C /* SceneDelegate.swift */; };
 		43443269237B4A4F0047A48C /* PropertyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43443268237B4A4F0047A48C /* PropertyListViewController.swift */; };
@@ -20,6 +21,7 @@
 		43443285237B56480047A48C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43443284237B56480047A48C /* Settings.swift */; };
 		43443286237B597A0047A48C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4344327A237B4E680047A48C /* SnapKit.framework */; };
 		43443289237B59830047A48C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43443288237B59830047A48C /* Alamofire.framework */; };
+		437BB21D237F659000E679A5 /* TemperatureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BB21C237F659000E679A5 /* TemperatureViewModel.swift */; };
 		43937DEE237F3FFA00C2422D /* PropertyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43937DED237F3FFA00C2422D /* PropertyListViewModel.swift */; };
 		439F5390237CB902000FB9BC /* SegmentedControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F538F237CB902000FB9BC /* SegmentedControlCell.swift */; };
 		43F0019F237E06960028F1D5 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F0019E237E06960028F1D5 /* Routes.swift */; };
@@ -29,6 +31,7 @@
 /* Begin PBXFileReference section */
 		43136151237F4C940049F044 /* Fetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetchable.swift; sourceTree = "<group>"; };
 		43136153237F4D290049F044 /* Postable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Postable.swift; sourceTree = "<group>"; };
+		43136155237F5DB10049F044 /* TemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewController.swift; sourceTree = "<group>"; };
 		43443261237B4A4F0047A48C /* Nilan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nilan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43443264237B4A4F0047A48C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43443266237B4A4F0047A48C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		43443282237B54AC0047A48C /* Readings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Readings.swift; sourceTree = "<group>"; };
 		43443284237B56480047A48C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		43443288237B59830047A48C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		437BB21C237F659000E679A5 /* TemperatureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewModel.swift; sourceTree = "<group>"; };
 		43937DED237F3FFA00C2422D /* PropertyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListViewModel.swift; sourceTree = "<group>"; };
 		439F538F237CB902000FB9BC /* SegmentedControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlCell.swift; sourceTree = "<group>"; };
 		43F0019E237E06960028F1D5 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			children = (
 				43443268237B4A4F0047A48C /* PropertyListViewController.swift */,
 				439F538F237CB902000FB9BC /* SegmentedControlCell.swift */,
+				43136155237F5DB10049F044 /* TemperatureViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			children = (
 				43F001A1237E07A20028F1D5 /* SegmentedControl.swift */,
 				43937DED237F3FFA00C2422D /* PropertyListViewModel.swift */,
+				437BB21C237F659000E679A5 /* TemperatureViewModel.swift */,
 			);
 			path = "View models";
 			sourceTree = "<group>";
@@ -245,6 +251,8 @@
 				43F001A2237E07A20028F1D5 /* SegmentedControl.swift in Sources */,
 				43136152237F4C940049F044 /* Fetchable.swift in Sources */,
 				439F5390237CB902000FB9BC /* SegmentedControlCell.swift in Sources */,
+				437BB21D237F659000E679A5 /* TemperatureViewModel.swift in Sources */,
+				43136156237F5DB10049F044 /* TemperatureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

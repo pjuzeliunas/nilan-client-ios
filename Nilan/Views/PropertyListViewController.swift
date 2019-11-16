@@ -103,6 +103,23 @@ class PropertyListViewController: UIViewController {
                     break
                 }
             }
+        case "showPause":
+            guard let settings = viewModel?.settings,
+                let pauseViewController = segue.destination as? PauseViewController else {
+                    return
+            }
+            if let kind = sender as? String {
+                switch kind {
+                case "centralHeating":
+                    pauseViewController.viewModel = CentralHeatingPauseViewModel(isOn: settings.centralHeatingPaused,
+                                                                                 duration: settings.centralHeatingPauseDuration)
+                case "dhw":
+                    pauseViewController.viewModel = DHWPauseViewModel(isOn: settings.dhwProductionPaused,
+                                                                      duration: settings.dhwProductionPauseDuration)
+                default:
+                    break
+                }
+            }
         default:
             return
         }
@@ -202,6 +219,10 @@ extension PropertyListViewController: UITableViewDelegate {
             performSegue(withIdentifier: "showTemperature", sender: "flow")
         case (1, 5):
             performSegue(withIdentifier: "showTemperature", sender: "dhw")
+        case (1, 4):
+            performSegue(withIdentifier: "showPause", sender: "centralHeating")
+        case (1, 6):
+            performSegue(withIdentifier: "showPause", sender: "dhw")
         default:
             break
         }

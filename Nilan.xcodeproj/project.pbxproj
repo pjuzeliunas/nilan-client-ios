@@ -22,6 +22,8 @@
 		43443286237B597A0047A48C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4344327A237B4E680047A48C /* SnapKit.framework */; };
 		43443289237B59830047A48C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43443288237B59830047A48C /* Alamofire.framework */; };
 		437BB21D237F659000E679A5 /* TemperatureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BB21C237F659000E679A5 /* TemperatureViewModel.swift */; };
+		438EC38E2380915600F61225 /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438EC38D2380915600F61225 /* PauseViewController.swift */; };
+		438EC39023809E4C00F61225 /* PauseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438EC38F23809E4C00F61225 /* PauseViewModel.swift */; };
 		43937DEE237F3FFA00C2422D /* PropertyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43937DED237F3FFA00C2422D /* PropertyListViewModel.swift */; };
 		439F5390237CB902000FB9BC /* SegmentedControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F538F237CB902000FB9BC /* SegmentedControlCell.swift */; };
 		43F0019F237E06960028F1D5 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F0019E237E06960028F1D5 /* Routes.swift */; };
@@ -48,6 +50,8 @@
 		43443284237B56480047A48C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		43443288237B59830047A48C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		437BB21C237F659000E679A5 /* TemperatureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewModel.swift; sourceTree = "<group>"; };
+		438EC38D2380915600F61225 /* PauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
+		438EC38F23809E4C00F61225 /* PauseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewModel.swift; sourceTree = "<group>"; };
 		43937DED237F3FFA00C2422D /* PropertyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListViewModel.swift; sourceTree = "<group>"; };
 		439F538F237CB902000FB9BC /* SegmentedControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlCell.swift; sourceTree = "<group>"; };
 		43F0019E237E06960028F1D5 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 				43443268237B4A4F0047A48C /* PropertyListViewController.swift */,
 				439F538F237CB902000FB9BC /* SegmentedControlCell.swift */,
 				43136155237F5DB10049F044 /* TemperatureViewController.swift */,
+				438EC38D2380915600F61225 /* PauseViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				43F001A1237E07A20028F1D5 /* SegmentedControl.swift */,
 				43937DED237F3FFA00C2422D /* PropertyListViewModel.swift */,
 				437BB21C237F659000E679A5 /* TemperatureViewModel.swift */,
+				438EC38F23809E4C00F61225 /* PauseViewModel.swift */,
 			);
 			path = "View models";
 			sourceTree = "<group>";
@@ -245,6 +251,8 @@
 				43443265237B4A4F0047A48C /* AppDelegate.swift in Sources */,
 				43443283237B54AC0047A48C /* Readings.swift in Sources */,
 				43937DEE237F3FFA00C2422D /* PropertyListViewModel.swift in Sources */,
+				438EC39023809E4C00F61225 /* PauseViewModel.swift in Sources */,
+				438EC38E2380915600F61225 /* PauseViewController.swift in Sources */,
 				43443267237B4A4F0047A48C /* SceneDelegate.swift in Sources */,
 				43136154237F4D290049F044 /* Postable.swift in Sources */,
 				43443285237B56480047A48C /* Settings.swift in Sources */,

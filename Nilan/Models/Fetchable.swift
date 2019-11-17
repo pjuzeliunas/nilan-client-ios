@@ -10,13 +10,22 @@ import Foundation
 import Alamofire
 
 protocol Fetchable: Codable {
-    static var fetchURL: String { get }
+    static var fetchURL: String? { get }
 }
 
 extension Fetchable {
-    static func fetch(_  callback: @escaping (Result<Self, AFError>) -> Void) {
+    static func fetch(_  callback: @escaping (Result<Self, Error>) -> Void) {
+        guard let fetchURL = fetchURL else {
+            callback(.failure(NetworkError.unknownHost))
+            return
+        }
         AF.request(fetchURL).responseDecodable { (response: DataResponse<Self, AFError>) in
-            callback(response.result)
+            switch response.result {
+            case .failure(let error):
+                callback(.failure(error))
+            case .success(let result):
+                callback(.success(result))
+            }
         }
     }
 }

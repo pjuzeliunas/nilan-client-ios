@@ -10,16 +10,26 @@ import Foundation
 import Alamofire
 
 protocol Postable: Codable {
-    var postURL: String { get }
+    var postURL: String? { get }
 }
 
 extension Postable {
-    func post(_  callback: @escaping (Result<Data?, AFError>) -> Void) {
-        AF.request(postURL,
-                   method: .put,
-                   parameters: self,
-                   encoder: JSONParameterEncoder.default).response { response in
-            callback(response.result)
+    func post(_  callback: @escaping (Result<Data?, Error>) -> Void) {
+        guard let postURL = postURL else {
+            callback(.failure(NetworkError.unknownHost))
+            return
+        }
+        let request = AF.request(postURL,
+                                 method: .put,
+                                 parameters: self,
+                                 encoder: JSONParameterEncoder.default)
+        request.response { response in
+            switch response.result {
+            case .failure(let error):
+                callback(.failure(error))
+            case .success(let result):
+                callback(.success(result))
+            }
         }
     }
 }

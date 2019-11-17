@@ -24,6 +24,7 @@
 		437BB21D237F659000E679A5 /* TemperatureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BB21C237F659000E679A5 /* TemperatureViewModel.swift */; };
 		438EC38E2380915600F61225 /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438EC38D2380915600F61225 /* PauseViewController.swift */; };
 		438EC39023809E4C00F61225 /* PauseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438EC38F23809E4C00F61225 /* PauseViewModel.swift */; };
+		438EC3922381C97500F61225 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438EC3912381C97500F61225 /* OnboardingViewController.swift */; };
 		43937DEE237F3FFA00C2422D /* PropertyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43937DED237F3FFA00C2422D /* PropertyListViewModel.swift */; };
 		439F5390237CB902000FB9BC /* SegmentedControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F538F237CB902000FB9BC /* SegmentedControlCell.swift */; };
 		43F0019F237E06960028F1D5 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F0019E237E06960028F1D5 /* Routes.swift */; };
@@ -52,6 +53,7 @@
 		437BB21C237F659000E679A5 /* TemperatureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewModel.swift; sourceTree = "<group>"; };
 		438EC38D2380915600F61225 /* PauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
 		438EC38F23809E4C00F61225 /* PauseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewModel.swift; sourceTree = "<group>"; };
+		438EC3912381C97500F61225 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		43937DED237F3FFA00C2422D /* PropertyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListViewModel.swift; sourceTree = "<group>"; };
 		439F538F237CB902000FB9BC /* SegmentedControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlCell.swift; sourceTree = "<group>"; };
 		43F0019E237E06960028F1D5 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				439F538F237CB902000FB9BC /* SegmentedControlCell.swift */,
 				43136155237F5DB10049F044 /* TemperatureViewController.swift */,
 				438EC38D2380915600F61225 /* PauseViewController.swift */,
+				438EC3912381C97500F61225 /* OnboardingViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				43136154237F4D290049F044 /* Postable.swift in Sources */,
 				43443285237B56480047A48C /* Settings.swift in Sources */,
 				43F001A2237E07A20028F1D5 /* SegmentedControl.swift in Sources */,
+				438EC3922381C97500F61225 /* OnboardingViewController.swift in Sources */,
 				43136152237F4C940049F044 /* Fetchable.swift in Sources */,
 				439F5390237CB902000FB9BC /* SegmentedControlCell.swift in Sources */,
 				437BB21D237F659000E679A5 /* TemperatureViewModel.swift in Sources */,

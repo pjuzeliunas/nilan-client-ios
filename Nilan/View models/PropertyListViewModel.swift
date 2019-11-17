@@ -14,7 +14,7 @@ struct PropertyListViewModel {
     let readings: Readings
     let settings: Settings
     
-    static func load(_ callback: @escaping (Result<PropertyListViewModel, AFError>) -> Void) {
+    static func load(_ callback: @escaping (Result<PropertyListViewModel, Error>) -> Void) {
         Readings.fetch { result in
             switch result {
             case .failure(let error):

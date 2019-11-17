@@ -41,12 +41,19 @@ class PropertyListViewController: UIViewController {
         listView.register(SegmentedControlCell<FanSpeedSegmentedControl>.self, forCellReuseIdentifier: fanSpeedCellIdentifier)
         listView.register(SegmentedControlCell<VentilationModelSegmentedControl>.self, forCellReuseIdentifier: ventilationModelCellIdentifier)
         
-        reloadData()
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        startUpdatingReadings()
+    }
+    
+    func startUpdatingReadings() {
         updateTimer = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { [weak self] _ in
             self?.reloadData()
         }
-        
-        navigationController?.isNavigationBarHidden = true
+        reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,11 +79,23 @@ class PropertyListViewController: UIViewController {
             self?.isLoading = false
             switch result {
             case .failure:
-                break
+                self?.updateTimer?.invalidate()
+                self?.updateTimer = nil
+                self?.flushUserDefaults()
+                self?.presentOnboardingScreen()
             case .success(let newViewModel):
                 self?.viewModel = newViewModel
             }
         }
+    }
+    
+    private func presentOnboardingScreen() {
+        self.performSegue(withIdentifier: "onboard", sender: self)
+    }
+    
+    private func flushUserDefaults() {
+        UserDefaults.standard.set(nil, forKey: UserDefaults.serverAddressKey)
+        UserDefaults.standard.set(nil, forKey: UserDefaults.serverPortKey)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -119,6 +138,10 @@ class PropertyListViewController: UIViewController {
                 default:
                     break
                 }
+            }
+        case "onboard":
+            if let onboardingViewController = segue.destination as? OnboardingViewController {
+                onboardingViewController.delegate = self
             }
         default:
             return
@@ -258,5 +281,14 @@ extension FanSpeed {
 extension VentilationMode {
     func toSegmentedControlIndex() -> Int {
         return rawValue
+    }
+}
+
+extension PropertyListViewController: OnboardingViewControllerDelegate {
+    func didTapConnect() {
+        if Routes.basePathIsValidAddress {
+            dismiss(animated: true)
+            startUpdatingReadings()
+        }
     }
 }

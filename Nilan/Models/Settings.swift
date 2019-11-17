@@ -50,13 +50,13 @@ extension Settings: Codable {
 }
 
 extension Settings: Fetchable {
-    static var fetchURL: String {
+    static var fetchURL: String? {
         return Routes.settings
     }
 }
 
 extension Settings: Postable {
-    var postURL: String {
+    var postURL: String? {
         return Routes.settings
     }
 }

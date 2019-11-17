@@ -8,9 +8,40 @@
 
 import Foundation
 
+enum NetworkError: Error {
+    case unknownHost
+}
+
 struct Routes {
-    static let basePath = "http://192.168.1.8:8080"
+    static var basePath: String? {
+        guard let address = UserDefaults.standard.string(forKey: UserDefaults.serverAddressKey) else {
+            return nil
+        }
+        let port = UserDefaults.standard.integer(forKey: UserDefaults.serverPortKey)
+        return "http://\(address):\(port)"
+    }
     
-    static let readings = basePath + "/readings"
-    static let settings = basePath + "/settings"
+    static var basePathIsValidAddress: Bool {
+        guard let basePath = basePath else {
+            return false
+        }
+        if let url = URL(string: basePath) {
+            return url.host != nil && url.host != "" && url.port != nil
+        }
+        return false
+    }
+    
+    static var readings: String? {
+        guard let basePath = basePath else {
+            return nil
+        }
+        return basePath + "/readings"
+    }
+    
+    static var settings: String? {
+        guard let basePath = basePath else {
+            return nil
+        }
+        return basePath + "/settings"
+    }
 }

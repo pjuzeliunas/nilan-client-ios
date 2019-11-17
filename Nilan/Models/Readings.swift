@@ -31,7 +31,7 @@ extension Readings: Codable {
 }
 
 extension Readings: Fetchable {
-    static var fetchURL: String {
+    static var fetchURL: String? {
         return Routes.readings
     }
 }

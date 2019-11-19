@@ -3,6 +3,8 @@
 Nilan client app displays readings of Nilan heatpump and can control basic
 settings such as room temperature, ventilation mode or pause.
 
+![](app.png "App")
+
 App requires
 [Nilan REST API](https://github.com/pjuzeliunas/nilan-rest-api)
 server to be running in the same network as iOS
